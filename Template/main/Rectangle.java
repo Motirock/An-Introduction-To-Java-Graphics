@@ -31,6 +31,14 @@ public class Rectangle {
         this.height = 0;
     }
 
+    //Construct from other rectangle
+    public Rectangle(Rectangle rectangle) {
+        this.x = rectangle.x;
+        this.y = rectangle.y;
+        this.width = rectangle.width;
+        this.height = rectangle.height;
+    }
+
     //Simple getters (accessors) and setters (mutators)
 
     public double getX() {
@@ -66,12 +74,24 @@ public class Rectangle {
     }
 
     //If rectangles overlap, not just touch
-    //Based around x and y being corner positions, but in theory should work if they represent center
-    public boolean intersects(Rectangle other) {
+    //Based around x and y being corner positions
+    public boolean intersectsTopLeftRects(Rectangle other) {
         double centerX1 = this.x+this.width/2.0;
         double centerY1 = this.y+this.height/2.0;
         double centerX2 = other.x+other.width/2.0;
         double centerY2 = other.y+other.height/2.0;
+        if (Math.abs(centerX2-centerX1) > (this.width+other.width)/2.0
+         || Math.abs(centerY2-centerY1) > (this.height+other.height)/2.0)
+            return false;
+        return true;
+    }
+    
+    //Same, but based around x and y being the center coordinated
+    public boolean intersectsCenteredRects(Rectangle other) {
+        double centerX1 = this.x;
+        double centerY1 = this.y;
+        double centerX2 = other.x;
+        double centerY2 = other.y;
         if (Math.abs(centerX2-centerX1) > (this.width+other.width)/2.0
          || Math.abs(centerY2-centerY1) > (this.height+other.height)/2.0)
             return false;
