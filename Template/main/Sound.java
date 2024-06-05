@@ -60,7 +60,7 @@ public class Sound {
             fc.setValue(-80.0f);
             return;
         }
-        if (volume >= 100)//TODO automatically to max
+        if (volume >= 100)
             volume = 100;
         fc.setValue((float) (Math.log10(volume/10.0)*(maxVolume-minVolume)+minVolume));
     }

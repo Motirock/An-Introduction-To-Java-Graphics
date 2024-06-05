@@ -69,7 +69,7 @@ public class GamePanel extends JPanel implements Runnable {
 		
     //Sound: the Strings are the names of the sound files used. Also note that the order matters.
     ArrayList<String> soundFiles = new ArrayList<String>(Arrays.asList("bruh.wav", "bruh.wav"));
-    Sound sound = new Sound(new ArrayList<String>(Arrays.asList("bruh.wav", "bruh.wav")));
+    Sound sound = new Sound(soundFiles);
 	
     //Thread is used to run the run() method
     Thread gameThread;
@@ -115,7 +115,7 @@ public class GamePanel extends JPanel implements Runnable {
         if (isFullScreen)
             setFullScreen();
 
-	//Scaling for fullscreen requires additional information, so it comes last
+	    //Scaling for fullscreen requires additional information, so it comes last
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
