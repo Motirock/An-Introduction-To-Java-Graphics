@@ -94,7 +94,7 @@ After [downloading](https://github.com/Motirock/An-Introduction-To-Java-Graphics
 File paths are set when we construct the `Sound` object in `GamePanel`, so we will have to modify the `GamePanel` class.  
 Change the line where we create the `Sound` object in `GamePanel` (it is after the section involing keystrokes and directly after the creation of the `Game` object) to be:
 
-  Sound sound = new Sound(new ArrayList<String>(Arrays.asList("bruh.wav", "bruh.wav")));
+    Sound sound = new Sound(new ArrayList<String>(Arrays.asList("bruh.wav", "bruh.wav")));
   
 If it this already (it is like this in the template), you don't have to modify it.  
 
