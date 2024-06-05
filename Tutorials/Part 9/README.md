@@ -71,12 +71,12 @@ I actually made some methods in the bottom of `GamePanel` which can help take ca
 
 ### Other Methods
 
-`loop()` loops sounds TODO CHECK. 
-`stop()` TODO CHECK. 
+`loop()` loops sounds. Without any parameters, it loops forever. With an integer as a parameter, it loops a set amount of times, like `loop(3)` plays the sound 3 times.  
+`stop()` stops current sounds.  
 `updateVolume()` is only used by the class to update the volume from the linear-scaled `volume` instance variable of `Game` to decibels (logarithmic) and then sets it using classes imported. Also, if `volume` is out of the range of 0-100, it is adjusted appropriately.  
 `setVolume(int vol)` sets the volume based on the integer passed as a parameter.  
 `getVolume()` returns the volume.  
-`incrementVolume()` and `decrementVolume()` increment and decrement volume, respectively. By default it does this by 5 percent, but you can go into the `Sound` class and edit it.  
+`increaseVolume()` and `decreaseVolume()` increment and decrement volume, respectively. By default the methods do this by 5 percent, but you can go into the `Sound` class and edit it or call these methods with an integer parameter, like `increaseVolume(10)` to increase the volume by 10%.  
 
 ### Playing a Sound Effect Example
 
@@ -85,8 +85,9 @@ To play a "bruh" sound effect, there are several steps.
 
 ##### Downloading
 
+If you already have the "bruh.wav" file in the `res/audio` folder, you may skip this step.  
 To play a "bruh" sound effect, we need to first download it.  
-After [downloading](https://github.com/Motirock/An-Introduction-To-Java-Graphics/blob/main/Resources/Audio%20Files/bruh.wav) the sound effect, let's put it in the `res` folder.  
+After [downloading](https://github.com/Motirock/An-Introduction-To-Java-Graphics/blob/main/Resources/Audio%20Files/bruh.wav) the sound effect, let's put it in the `res/audio` folder.  
 
 ##### Setting File Path
 
@@ -96,9 +97,18 @@ Change the line where we create the `Sound` object in `GamePanel` (it is after t
   Sound sound = new Sound(new ArrayList<String>(Arrays.asList("bruh.wav", "bruh.wav")));
   
 If it this already (it is like this in the template), you don't have to modify it.  
-Now, we can start modifying the `Game` class. 
-In the //TODO do this at home, create example sound program and test all methods.
-  
 
+##### Playing the Sound
+
+Now, we can start modifying the `Game` class.  
+In the update() method, let's insert this code:  
+
+    //Runs once a second, assuming there are 1000 updates per second (updatesPerSecond = 1000)
+    if (updates % 1000 == 0)
+        //Plays the sound effect in slot 0, which we defined as bruh.wav
+        gp.playSF(0);
+
+You can try using the other methods. Maybe try making it so that volume oscillates, for example.  
+  
 Now that we have covered output, you should be ready to move on to input.  
 [Part 10: Keyboard Input](https://github.com/Motirock/An-Introduction-To-Java-Graphics/tree/main/Tutorials/Part%2010)
