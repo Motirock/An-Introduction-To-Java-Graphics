@@ -249,6 +249,12 @@ public class GamePanel extends JPanel implements Runnable {
         setSFVolume(volume);
         sound.play();
     }
+    public void loopSound() {
+        sound.loop();
+    }
+    public void loopSound(int times) {
+        sound.loop(times);
+    }
     public void setSFVolume(int SFVolume) {
         volume = SFVolume;
         if (volume > 100)
@@ -256,5 +262,20 @@ public class GamePanel extends JPanel implements Runnable {
         else if (volume < 0)
             volume = 0;
         sound.setVolume(volume);
+    }
+    public int getVolume() {
+        return sound.getVolume();
+    }
+    public void increaseVolume() {
+        sound.increaseVolume();
+    }
+    public void increaseVolume(int amount) {
+        sound.decreaseVolume(amount);
+    }
+    public void decreaseVolume() {
+        decreaseVolume();
+    }
+    public void decreaseVolume(int amount) {
+        decreaseVolume(amount);
     }
 }

@@ -43,9 +43,12 @@ public class Sound {
         clip.start();
     }
     
-    //Loops the current sound WHEN DOES STOP LOOPING?
+    //Loops the current sound
     public void loop() {
         clip.loop(Clip.LOOP_CONTINUOUSLY);
+    }
+    public void loop(int times) {
+        clip.loop(times);
     }
     
     //Stops the current sounds
@@ -77,14 +80,24 @@ public class Sound {
     }
     
     //Increments volume by 5
-    public void incrementVolume() {
+    public void increaseVolume() {
         volume += 5;
+        updateVolume();
+    }
+    //Increments volume by a specified amount
+    public void increaseVolume(int amount) {
+        volume += amount;
         updateVolume();
     }
     
     //Decrements volume by 5
-    public void decrementVolume() {
+    public void decreaseVolume() {
         volume -= 5;
+        updateVolume();
+    }
+    //Decrements volume by a specified amount
+    public void decreaseVolume(int amount) {
+        volume -= amount;
         updateVolume();
     }
 }
