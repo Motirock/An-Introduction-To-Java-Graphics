@@ -32,7 +32,7 @@ The only parameters is an `ArrayList` of strings which is contains the names of 
     
     //Sound: the Strings are the names of the sound files used. Also note that the order matters.
     ArrayList<String> soundFiles = new ArrayList<String>(Arrays.asList("bruh.wav", "bruh.wav"));
-    Sound sound = new Sound(new ArrayList<String>(Arrays.asList("death.wav", "heal.wav")));
+    Sound sound = new Sound(soundFiles);
   
 ### Setting the File
 
